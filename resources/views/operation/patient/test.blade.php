@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>基本情報</h2>
-                <form action="{{ action('Operation\UserController@testresult') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Operation\UserController@test1') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -31,24 +31,9 @@
                             <input type="text" class="form-control" name="age" value="{{ old('age') }}">
                         </div>
                     </div>
-                    {{ csrf_field() }}
-                </form>
-             </div>
-         </div>
-         <div class="row">
-            <div class="col-md-8 mx-auto">
                 <h2>評価入力</h2>
-                <form action="{{ action('Operation\UserController@testresult') }}" method="post" enctype="multipart/form-data">
-
-                    @if (count($errors) > 0)
-                        <ul>
-                            @foreach($errors->all() as $e)
-                                <li>{{ $e }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
                     <div class="form-group row">
-                        <label class="col-md-auto">　10m歩行速度(2～3回計測の最速値)</label>
+                        <label class="col-md-auto">　＜10m歩行速度(2～3回計測の最速値)＞</label>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-auto">　快適速度(秒)</label>
@@ -56,12 +41,13 @@
                             <input type="text" class="form-control" name="comfortable" value="{{ old('comfortable') }}">
                         </div>
                         <label class="col-md-auto">最大速度(秒)</label>
+                        
                         <div class="col-md-2">
                             <input type="text" class="form-control" name="maximum" value="{{ old('maximum') }}">
                         </div>
                     </div>
                      <div class="form-group row">
-                        <label class="col-md-auto">　6分間歩行距離</label>
+                        <label class="col-md-auto">　＜6分間歩行距離＞</label>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-auto">　距離(m)</label>

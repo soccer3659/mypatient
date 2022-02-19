@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Operation;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Test;
 
 class UserController extends Controller
 {
@@ -16,9 +17,19 @@ class UserController extends Controller
         return redirect('operation/patient/create');
     }
     
-    public function test()
+    public function select()
+    {
+        return view('operation.patient.select');
+    }
+    
+    public function test1()
     {
         return view('operation.patient.test');    
+    }
+    
+    public function test2(Request $request)
+    {
+        return redirect('operation/patient/test');    
     }
     
     public function testresult(Request $request)
@@ -32,6 +43,6 @@ class UserController extends Controller
         $test->fill($form);
         $test->save();
         
-        return redirect('operation/patient/test');
+        return view('operation.patient.testresult');
     }
 }
