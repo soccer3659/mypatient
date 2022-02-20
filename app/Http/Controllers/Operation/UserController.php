@@ -17,19 +17,21 @@ class UserController extends Controller
         return redirect('operation/patient/create');
     }
     
-    public function select()
+    public function select(Request $request)
     {
-        return view('operation.patient.select');
+        $cond_title = $request->cond_title;
+        $posts = Test::all();
+        return view('operation.patient.select',['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
-    public function test1()
+    public function test()
     {
         return view('operation.patient.test');    
     }
     
     public function test2(Request $request)
     {
-        return redirect('operation/patient/test');    
+        return view('operation.patient.test');    
     }
     
     public function testresult(Request $request)
@@ -45,4 +47,15 @@ class UserController extends Controller
         
         return view('operation.patient.testresult');
     }
+    
+    
+    public function delete(Request $request)
+    {
+        $test = Test::find($request->id);
+        $test -> delete();
+        $cond_title = $request->cond_title;
+        $posts = Test::all();
+        return view('operation.patient.select',['posts' => $posts, 'cond_title' => $cond_title]);
+    }
+    
 }

@@ -6,11 +6,45 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>選択</h2>
-                <form action="{{ action('Operation\UserController@select') }}" method="post" >
+                <form action="{{ action('Operation\UserController@test2') }}" method="post" >
                 {{ csrf_field() }}    
                 <input type="submit" class="btn btn-primary" value="検査開始">
                 </form>
             </div>    
-        </div>        
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+             <h2></h2>
+             <h2>履歴</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="list-test col-md-8 mx-auto">
+                <div class="row">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th width="10%">ID</th>
+                                <th width="10%">日時</th>
+                                <th width="10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($posts as $test)
+                                <tr>
+                                    <th>{{ $test->id }}</th>
+                                    <td>{{ \Str::limit($test->created_at, 30) }}</td>
+                                     <td>
+                                        <div>
+                                             <a href="{{ action('Operation\UserController@delete', ['id' => $test->id]) }}">削除</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

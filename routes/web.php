@@ -25,8 +25,14 @@ Route::group(['prefix' => 'operation'],function(){
     Route::get('patient/test','Operation\UserController@test1');
     Route::post('patient/test','Operation\UserController@testresult');
     
-    Route::get('patient/testresult','Operation\UserController@testresult');
+    Route::post('patient/testresult','Operation\UserController@testresult');
+    
+    Route::get('patient/delete','Operation\UserController@delete');
 });    
+   
+   
+    
+    
 
 
 
