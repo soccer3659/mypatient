@@ -22,10 +22,8 @@ Route::group(['prefix' => 'operation'],function(){
     Route::get('patient/select','Operation\UserController@select');
     Route::post('patient/select','Operation\UserController@test2');
     
-    Route::get('patient/test','Operation\UserController@test1');
+    Route::get('patient/test','Operation\UserController@test');
     Route::post('patient/test','Operation\UserController@testresult');
-    
-    Route::post('patient/testresult','Operation\UserController@testresult');
     
     Route::get('patient/delete','Operation\UserController@delete');
 });    

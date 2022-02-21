@@ -6,10 +6,8 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>選択</h2>
-                <form action="{{ action('Operation\UserController@test2') }}" method="post" >
+                <a href="{{ action('Operation\UserController@test') }}" role="button" class="btn btn-primary">検査開始</a>
                 {{ csrf_field() }}    
-                <input type="submit" class="btn btn-primary" value="検査開始">
-                </form>
             </div>    
         </div>
         <div class="row">

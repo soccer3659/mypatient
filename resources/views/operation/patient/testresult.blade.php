@@ -6,6 +6,9 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>結果判断</h2>
+                @foreach($gait as $key => $value)
+                    <p>{{$key}}->{{$value}}</p>
+                @endforeach
             </div>    
         </div>        
     </div>

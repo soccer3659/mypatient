@@ -45,7 +45,10 @@ class UserController extends Controller
         $test->fill($form);
         $test->save();
         
-        return view('operation.patient.testresult');
+        $gait = config('average.10m歩行');
+        $md = config('average.6分間歩行距離');
+        
+        return view('operation.patient.testresult', compact('gait' , 'md'));
     }
     
     
