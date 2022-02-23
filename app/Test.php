@@ -11,6 +11,6 @@ class Test extends Model
     public static $rules = array(
         'name' => 'required',
         'gender' => 'required',
-        'age' => 'required',
+        'age' => 'required'
         );
 }

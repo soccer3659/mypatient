@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Test;
 
+
 class UserController extends Controller
 {
     public function add () {
@@ -48,7 +49,7 @@ class UserController extends Controller
         $gait = config('average.10m歩行');
         $md = config('average.6分間歩行距離');
         
-        return view('operation.patient.testresult', compact('gait' , 'md'));
+        return view('operation.patient.testresult', compact('gait' , 'md'),['form_blade' => $form]);
     }
     
     
