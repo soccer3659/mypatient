@@ -17,15 +17,16 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'operation'],function(){
     Route::get('patient/create','Operation\UserController@add')->middleware('auth');
-    Route::post('patient/create','Operation\UserController@select');
+    Route::post('patient/create','Operation\UserController@select')->middleware('auth');
     
-    Route::get('patient/select','Operation\UserController@select');
-    Route::post('patient/select','Operation\UserController@test2');
+    Route::get('patient/select','Operation\UserController@select')->middleware('auth');
+    Route::post('patient/select','Operation\UserController@test2')->middleware('auth');
     
-    Route::get('patient/test','Operation\UserController@test');
-    Route::post('patient/test','Operation\UserController@testresult');
+    Route::get('patient/test','Operation\UserController@test')->middleware('auth');
+    Route::post('patient/test','Operation\UserController@testresult')->middleware('auth');
     
-    Route::get('patient/delete','Operation\UserController@delete');
+    Route::get('patient/delete','Operation\UserController@delete')->middleware('auth');
+    Route::get('patient/history','Operation\UserController@history')->middleware('auth');
 });    
    
    

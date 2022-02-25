@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Operation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Test;
+use Carbon\Carbon;
 
 
 class UserController extends Controller
@@ -44,12 +45,13 @@ class UserController extends Controller
         unset($form['_token']);
         
         $test->fill($form);
+        $test->created_at = Carbon::today();
         $test->save();
         
         $gait = config('average.10m歩行');
         $md = config('average.6分間歩行距離');
         
-        return view('operation.patient.testresult', compact('gait' , 'md'),['form_blade' => $form]);
+        return view('operation.patient.testresult', compact('gait' , 'md'),['test' => $test]);
     }
     
     
@@ -62,4 +64,14 @@ class UserController extends Controller
         return view('operation.patient.select',['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
+    public function history(Request $request)
+    {
+        $cond_title = $request->cond_title;
+        $posts = Test::all();
+        $history = Test::find($request->id);
+        $gait = config('average.10m歩行');
+        $md = config('average.6分間歩行距離');
+        
+        return view('operation.patient.history', compact('gait' , 'md'),['history' => $history, 'posts' => $posts, 'cond_title' => $cond_title]);
+    }
 }
