@@ -15,9 +15,10 @@ class TestsTable extends Migration
     {
        Schema::create('tests', function(Blueprint $table) {
          $table->bigIncrements('id');
-         $table->string('name');
-         $table->string('gender');
-         $table->integer('age');
+         $table->integer('patients_id');
+         $table->string('name')->nullable();
+         $table->string('gender')->nullable();
+         $table->string('age')->nullable();
          $table->integer('comfortable')->nullable();
          $table->integer('maximum')->nullable();
          $table->integer('distance')->nullable();

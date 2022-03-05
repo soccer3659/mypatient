@@ -1,5 +1,5 @@
 @extends('layouts.operation')
-@section('title', '選択')
+@section('title', '新規検査')
 
 @section('content')
     <div class="container">
@@ -13,23 +13,22 @@
         <br>
         <div class="row">
             <div class="col-md-8 mx-auto">
-             <h2>過去の検査</h2>
+             <h2>履歴</h2>
             </div>
         </div>
         <div class="row">
-            <div class="list-test col-md-8 mx-auto">
-                <div class="row">
+            <div class="col-md-8 mx-auto">
                     <table class="table table-dark">
                         <thead>
-                            <tr>
-                                <th width="10%">検査日時</th>
-                                <th width="10%"></th>
-                                <th width="10%"></th>
+                            <tr style="border:1px solid black;">
+                                <th>検査日時</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $test)
-                                <tr>
+                                <tr style="border:1px solid black;">
                                     <td>{{ \Str::limit($test->created_at->format('Y,m,d'), 30) }}</td>
                                     <td>
                                         <div>
@@ -45,7 +44,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
             </div>
         </div>
     </div>

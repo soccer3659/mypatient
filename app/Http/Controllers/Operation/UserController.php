@@ -5,18 +5,36 @@ namespace App\Http\Controllers\Operation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Test;
+use App\Patient;
 use Carbon\Carbon;
 
 
 class UserController extends Controller
 {
-    public function add () {
-        return view('operation.patient.create');
+    public function list(Request $request) 
+    {
+        $posts = Patient::all();
+        return view('operation.patient.list',['posts' => $posts]);
     }
     
      public function create()
     {
-        return redirect('operation/patient/create');
+        return view('operation.patient.create');
+    }
+    
+    public function add(Request $request)
+    {
+        $this->validate($request,Patient::$rules);
+        $patient = new Patient;
+        $form = $request->all();
+        unset($form['_token']);
+        $patient->fill($form);
+        $patient->save();
+        
+        $test = new Test();
+        $test->patients_id = $patient->id;
+        
+        return redirect('operation/patient/select');
     }
     
     public function select(Request $request)
@@ -51,7 +69,7 @@ class UserController extends Controller
         $gait = config('average.10m歩行');
         $md = config('average.6分間歩行距離');
         
-        return view('operation.patient.testresult', compact('gait' , 'md'),['test' => $test]);
+        return view('operation.patient.result', compact('gait' , 'md'),['history' => $test]);
     }
     
     
@@ -66,12 +84,10 @@ class UserController extends Controller
     
     public function history(Request $request)
     {
-        $cond_title = $request->cond_title;
-        $posts = Test::all();
         $history = Test::find($request->id);
         $gait = config('average.10m歩行');
         $md = config('average.6分間歩行距離');
         
-        return view('operation.patient.history', compact('gait' , 'md'),['history' => $history, 'posts' => $posts, 'cond_title' => $cond_title]);
+        return view('operation.patient.result', compact('gait' , 'md'),['history' => $history]);
     }
 }

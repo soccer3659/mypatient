@@ -40,7 +40,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                               <h2>~身体機能・認知機能評価~</h2>
+                               <h1>身体機能・認知機能評価</h1>
                         </ul>
 
                         <!-- Right Side Of Navbar -->

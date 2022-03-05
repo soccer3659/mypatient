@@ -146,9 +146,9 @@ return [
     */
 
     'attributes' => [
-        'name' => 'id',
-        'gender' => '性別',
-        'age' =>'年齢'
+        'ID2' => '患者ID',
+        'gender2' => '性別',
+        'age2' =>'年齢'
         ],
 
 ];
