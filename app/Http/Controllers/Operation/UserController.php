@@ -48,7 +48,7 @@ class UserController extends Controller
     
     public function test(Request $request)
     {
-        return view('operation.patient.test');    
+        return view('operation.patient.test',['id' => $request->id]);    
     }
     
     public function test2(Request $request)
@@ -71,7 +71,7 @@ class UserController extends Controller
         $gait = config('average.10m歩行');
         $md = config('average.6分間歩行距離');
         
-        return view('operation.patient.result', compact('gait' , 'md'),['history' => $test]);
+        return view('operation.patient.result', compact('gait' , 'md'), ['history' => $test, 'id' => $request->id]);
     }
     
     
