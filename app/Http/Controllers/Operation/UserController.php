@@ -43,10 +43,10 @@ class UserController extends Controller
     {
         $cond_title = $request->cond_title;
         $posts = Test::all();
-        return view('operation.patient.select',['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('operation.patient.select',['posts' => $posts, 'cond_title' => $cond_title, 'id' => $request->id]);
     }
     
-    public function test()
+    public function test(Request $request)
     {
         return view('operation.patient.test');    
     }
