@@ -9,8 +9,8 @@ class Test extends Model
     protected $guarded = array('id');
     
     public static $rules = array(
-        'patients_id' => 'required',
-        'ID2' => 'required',
+    
+        'name' => 'required',
         'gender' => 'required',
         'age' => 'required'
         );
