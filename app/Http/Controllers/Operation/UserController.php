@@ -31,10 +31,12 @@ class UserController extends Controller
         $patient->fill($form);
         $patient->save();
         
-        $test = new Test();
-        $test->patients_id = $patient->id;
+        //↓以下は質問の助言にて削除
+        // $test = new Test();
+        // $test->patients_id = $patient->id;
         
-        return redirect('operation/patient/select');
+        //patient_idを渡す
+        return redirect('operation/patient/select?id=' . $patient->id);
     }
     
     public function select(Request $request)
@@ -80,6 +82,15 @@ class UserController extends Controller
         $cond_title = $request->cond_title;
         $posts = Test::all();
         return view('operation.patient.select',['posts' => $posts, 'cond_title' => $cond_title]);
+    }
+    
+    public function patientDelete(Request $request)
+    {
+        $patient = Patient::find($request->id);
+        $patient -> delete();
+        $cond_title = $request->cond_title;
+        $posts = Patient::all();
+        return view('operation.patient.list',['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
     public function history(Request $request)

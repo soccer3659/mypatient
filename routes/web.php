@@ -33,7 +33,11 @@ Route::group(['prefix' => 'operation'],function(){
     
     Route::post('patient/test','Operation\UserController@testresult')->middleware('auth');
     
+    //↓ selectの履歴delete 
     Route::get('patient/delete','Operation\UserController@delete')->middleware('auth');
+    //↓ listのpatient delete
+    Route::get('patient/patientDelete','Operation\UserController@patientDelete')->middleware('auth');
+    
     Route::get('patient/history','Operation\UserController@history')->middleware('auth');
 });    
    

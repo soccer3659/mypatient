@@ -19,7 +19,7 @@
                     <div class="form-group row">
                         <label class="col-md-auto">患者ID</label>
                         <div class="col-md-5">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" name="ID2" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">

@@ -125,7 +125,7 @@
             </div> 
             <div class="col-md-8 mx-auto">
                   <div class="syuuryoubotton">
-                <a href="{{ action('Operation\UserController@select') }}" role="button" class="btn btn-primary">検査終了</a>
+                <a href="{{ action('Operation\UserController@list') }}" role="button" class="btn btn-primary">検査終了</a>
                 {{ csrf_field() }}   
                   </div>
             </div> 
