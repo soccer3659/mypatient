@@ -28,7 +28,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $test)
+                            @if($posts != NULL) 
+                              @foreach($posts as $test)
                                 <tr class="select-body">
                                     <td>{{ \Str::limit($test->created_at->format('Y,m,d'), 30) }}</td>
                                     <td>
@@ -43,6 +44,7 @@
                                     </td>    
                                 </tr>
                             @endforeach
+                           @endif
                         </tbody>
                     </table>
             </div>

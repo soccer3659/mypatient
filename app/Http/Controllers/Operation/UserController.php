@@ -41,7 +41,11 @@ class UserController extends Controller
     
     public function select(Request $request)
     {
-        $posts = Test::all();
+        //質問にて以下を修正
+        //$posts = Test::all();
+        //↓ 2行分を追加
+          $patient = Patient::find($request->id);
+          $posts = $patient->posts;
         return view('operation.patient.select',['posts' => $posts, 'id' => $request->id]);
     }
     
