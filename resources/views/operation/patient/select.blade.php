@@ -6,8 +6,9 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>新規検査</h2>
-                <a href="{{ action('Operation\UserController@test', ['id' => $id]) }}" role="button" class="btn btn-primary">開始</a>
+                <a href="{{ action('Operation\UserController@test', ['id' => $id, 'gender' => $gender]) }}" role="button" class="btn btn-primary">開始</a>
                 <input type="hidden" name="id" value="{{ $id }}">
+                <input type="hidden" name="gender" value="{{ $gender }}">
                 {{ csrf_field() }}    
             </div>    
         </div>

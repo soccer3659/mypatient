@@ -8,7 +8,8 @@
                 <h2>＜基本情報＞</h2>
                 <form action="{{ action('Operation\UserController@testresult') }}" method="post" enctype="multipart/form-data">
                      <input type="hidden" name="patient_id" value="{{ $id }}">
-                    
+                     <input type="hidden" name="gender" value="{{ $gender }}">
+                     
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -25,17 +26,7 @@
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-auto">性別　</label>
-                        <div class="col-md-2">
-                          <div>
-                             <input type="radio" name="gender" value="男" checked>男
-                          </div>
-                          <div>
-                             <input type="radio"  name="gender" value="女">女
-                          </div>
-                        </div>
-                    </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-auto">年齢　</label>
                         <div class="col-md-2">
