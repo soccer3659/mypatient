@@ -14,7 +14,7 @@
           <div class="list-test col-md-8 mx-auto">
              <table class="table table-dark">
                  <thead>
-                    <tr style="border:1px solid black;">
+                    <tr class="list-head">
                       <th width=20%>患者ID</th>
                       <th width=20%>性別</th>
                       <th width=20%>年齢</th>
@@ -23,13 +23,13 @@
                  </thead>
                  <tbody>
                     @foreach($posts as $patient)
-                      <tr style="border:1px solid black;">
+                      <tr class="list-body">
                          <td>{{ $patient->ID2 }}</td>
                          <td>{{ $patient->gender2 }}</td>
                          <td>{{ $patient->age2 }}</td>
                          <td>
                             <div>
-                                <a href="{{ action('Operation\UserController@patientDelete', ['id' => $patient->id]) }}" role="button" class="btn btn-danger">ID削除</a>
+                                <a href="{{ action('Operation\UserController@patientDelete', ['id' => $patient->id]) }}" role="button" class="btn btn-danger">削除</a>
                             </div>
                          </td> 
                       </tr>

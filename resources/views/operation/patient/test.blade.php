@@ -6,7 +6,8 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>＜基本情報＞</h2>
-                <form action="{{ action('Operation\UserController@testresult',['id' => $id]) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Operation\UserController@testresult') }}" method="post" enctype="multipart/form-data">
+                     <input type="hidden" name="patient_id" value="{{ $id }}">
                     
                     @if (count($errors) > 0)
                         <ul>
@@ -16,7 +17,8 @@
                         </ul>
                     @endif
                     
-                    <input type="hidden" name="id" value="{{ $id }}">
+                   
+                    
                     <div class="form-group row">
                         <label class="col-md-auto">患者ID</label>
                         <div class="col-md-5">

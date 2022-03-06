@@ -21,7 +21,7 @@
             <div class="col-md-8 mx-auto">
                     <table class="table table-dark">
                         <thead>
-                            <tr style="border:1px solid black;">
+                            <tr class="select-head">
                                 <th>検査日時</th>
                                 <th></th>
                                 <th></th>
@@ -29,11 +29,11 @@
                         </thead>
                         <tbody>
                             @foreach($posts as $test)
-                                <tr style="border:1px solid black;">
+                                <tr class="select-body">
                                     <td>{{ \Str::limit($test->created_at->format('Y,m,d'), 30) }}</td>
                                     <td>
                                         <div>
-                                             <a href="{{ action('Operation\UserController@history',['id' =>$test->id]) }}" role="button" class="btn btn-primary">結果</a>
+                                             <a href="{{ action('Operation\UserController@history',['id' => $test->id]) }}" role="button" class="btn btn-primary">結果</a>
                                         </div>
                                     </td>
                                     <td>

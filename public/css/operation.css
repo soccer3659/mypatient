@@ -60,3 +60,21 @@ body {
   padding: 10px 10px;
 }
 
+.list-head {
+  background-color: #dddddd;
+  border-bottom: solid #dddddd;
+}
+
+.list-body {
+  border-bottom: solid #dddddd;
+}
+
+.select-head {
+  background-color: #dddddd;
+  border-bottom: solid #dddddd;
+}
+
+.select-body {
+  border-bottom: solid #dddddd;
+}
+
