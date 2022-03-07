@@ -5,10 +5,12 @@
      <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>＜基本情報＞</h2>
+              
                 <form action="{{ action('Operation\UserController@testresult') }}" method="post" enctype="multipart/form-data">
-                     <input type="hidden" name="patient_id" value="{{ $id }}">
-                     <input type="hidden" name="gender" value="{{ $gender }}">
+                     {{--右記を質問にて修正<input type="hidden" name="patient_id" value="{{ $id }}"> --}}
+                     <input type="hidden" name="patient_id" value="{{ $patient->id }}">
+                     <input type="hidden" name="gender" value="{{ $patient->gender2 }}">
+                     <input type="hidden" name="age" value="{{ $patient->age2 }}">
                      
                     @if (count($errors) > 0)
                         <ul>
@@ -17,34 +19,7 @@
                             @endforeach
                         </ul>
                     @endif
-                    
-                   
-                    
-                    <div class="form-group row">
-                        <label class="col-md-auto">患者ID</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-md-auto">年齢　</label>
-                        <div class="col-md-2">
-                            <select name="age">
-                                <option value="40~44">40~44</option>
-                                <option value="45~49">45~49</option>
-                                <option value="50~54">50~54</option>
-                                <option value="55~59">55~59</option>
-                                <option value="60~64">60~64</option>
-                                <option value="65~69">65~69</option>
-                                <option value="70~74">70~74</option>
-                                <option value="75~79">75~79</option>
-                                <option value="80~84">80~84</option>
-                                <option value="85~89">85~89</option>
-                                <option value="90~94">90~94</option>
-                            </select>
-                        </div>
-                    </div>
+                  
                 <h2>＜評価入力＞</h2>
                 <h4> ➀10m歩行速度(2～3回計測の最速値)</h4>
                 <div class="form-group row">

@@ -36,7 +36,7 @@ class UserController extends Controller
         // $test->patients_id = $patient->id;
         
         //patient_idを渡す
-        return redirect('operation/patient/select?id=' . $patient->id ,['gender' =>$request->gender]);
+        return redirect('operation/patient/select?id=' . $patient->id);
     }
     
     public function select(Request $request)
@@ -46,12 +46,15 @@ class UserController extends Controller
         //↓ 2行分を追加
           $patient = Patient::find($request->id);
           $posts = $patient->posts;
-        return view('operation.patient.select',['posts' => $posts, 'id' => $request->id, 'gender' =>$request->gender]);
+        return view('operation.patient.select',['posts' => $posts, 'id' => $request->id]);
     }
     
     public function test(Request $request)
     {
-        return view('operation.patient.test',['id' => $request->id,'gender' =>$request->gender]);    
+        //↓以下を質問にて修正
+        //return view('operation.patient.test',['id' => $request->id]);
+         $patient = Patient::find($request->id);
+         return view('operation.patient.test',['patient' => $patient]); 
     }
     
     public function testresult(Request $request)
@@ -69,7 +72,7 @@ class UserController extends Controller
         $gait = config('average.10m歩行');
         $md = config('average.6分間歩行距離');
         
-        return view('operation.patient.result', compact('gait' , 'md'), ['history' => $test, 'id' => $request->id,'gender' =>$request->gender]);
+        return view('operation.patient.result', compact('gait' , 'md'), ['history' => $test]);
     }
     
         public function patientDelete(Request $request)

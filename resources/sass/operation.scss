@@ -63,10 +63,12 @@ body {
 
 .list-head{
   background-color: #dddddd;
-  border-bottom: solid #dddddd;
+  border-bottom: dotted #dddddd;
+  border-top: solid #dddddd;
 }
 
 .list-body{
+  border-top: solid #dddddd;
   border-bottom: solid #dddddd;
 }
 

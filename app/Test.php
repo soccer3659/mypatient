@@ -10,7 +10,6 @@ class Test extends Model
     
     public static $rules = array(
         'patient_id' => 'required',
-        'name' => 'required',
         'gender' => 'required',
         'age' => 'required'
         );
