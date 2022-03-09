@@ -45,7 +45,9 @@ class UserController extends Controller
         //$posts = Test::all();
         //↓ 2行分を追加
           $patient = Patient::find($request->id);
-          $posts = $patient->posts;
+          # Patientモデルでtestsメソッドを定義しているので、postsではなくtestsにする必要がある
+          # $posts = $patient->posts; 
+          $posts = $patient->tests;
         return view('operation.patient.select',['posts' => $posts, 'id' => $request->id]);
     }
     
@@ -88,8 +90,10 @@ class UserController extends Controller
     {
         $test = Test::find($request->id);
         $test -> delete();
-        $posts = Test::all();
-        return view('operation.patient.select',['posts' => $posts]);
+        
+        $patient = Patient::find($request->id);
+        $posts = $patient->tests;
+        return view('operation.patient.select',['posts' => $posts,'id' => $request->id]);
     }
     
     
