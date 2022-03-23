@@ -25,7 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        if (\app::environment('production')) {
+        if (\App::environment('production')) {
             \URL::forceSheme('https');
         }        
     }
