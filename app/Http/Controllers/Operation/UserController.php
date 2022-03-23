@@ -48,7 +48,7 @@ class UserController extends Controller
           # Patientモデルでtestsメソッドを定義しているので、postsではなくtestsにする必要がある
           # $posts = $patient->posts; 
           $posts = $patient->tests;
-        return view('operation.patient.select',['posts' => $posts, 'id' => $request->id]);
+        return view('operation.patient.select',['posts' => $posts, 'id' => $request->id, 'patient' => $patient]);
     }
     
     public function test(Request $request)
@@ -87,13 +87,18 @@ class UserController extends Controller
     
     
     public function delete(Request $request)
-    {
+    {   
         $test = Test::find($request->id);
+        //以下を質問で追加　
+        $patient_id = $test->patient_id;
         $test -> delete();
         
-        $patient = Patient::find($request->id);
-        $posts = $patient->tests;
-        return view('operation.patient.select',['posts' => $posts,'id' => $request->id]);
+        //$patient = Patient::find($request->id);
+        //上の行を質問にて↓に修正
+        //更にreturn redirectにしたことで↓2行を消去
+        //$patient = Patient::find($patient_id);
+        //$posts = $patient->tests;
+        return redirect('operation/patient/select?id='. $patient_id);
     }
     
     

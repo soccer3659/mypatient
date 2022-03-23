@@ -5,14 +5,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>結果判断 ({{$history->created_at->format('Y,m,d')}})</h2>
-                
-                <div class="hokou">
-                <h4>＜10m歩行結果＞</h4>
-                    @if($history['comfortable'] != null)
-                    <h5>結果は快適速度{{$history['comfortable']}}秒、最大速度{{$history['maximum']}}秒でした。</h5>
+             　　<div class=kekkah2>
+                <h2>身体機能・認知機能　結果判断 ({{ $history->created_at->format('Y,m,d') }})</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                   @if($history['comfortable'] != null)
+                    <div class="hokou">
+                      <h3>＜10m歩行＞</h3>
+                      <h4>結果は快適速度{{$history['comfortable']}}秒、最大速度{{$history['maximum']}}秒でした。</h4>
+                    </div>
                     @endif
                     
+                   <div class="hokouheikinn">
                     @if    ($history['age'] =="40~44" && $history['comfortable'] != null)
                      <p>{{$gait['50代']}}</p>
                     @elseif($history['age'] =="45~49" && $history['comfortable'] != null)
@@ -60,13 +67,20 @@
                     @elseif($history['comfortable'] > "25")
                      <p>{{$gait['25<x']}}</p> 
                     @endif
-               </div>
-               <div class ="hokoukyori">      
-              　<h4>＜6分間歩行距離結果＞</h4>
-              　     @if($history['distance'] != null)
-              　 　　<h5>結果は{{$history['distance']}}mでした。</h5>
+                   </div>
+                </div>
+            </div>
+            
+     <div class="row">
+            <div class="col-md-8 mx-auto">
+              　    @if($history['distance'] != null)
+                   <div class ="hokoukyori">
+              　 　    <h3>＜6分間歩行距離＞<h3>
+              　   　　<h4>結果は{{$history['distance']}}mでした。</h4>
+              　    </div>
               　 　  @endif
-              　 　  
+              　 　 
+              　 　  <div class="hokoukyoriheikinn">
                     @if    ($history['age'] == "40~44" && $history['gender'] == "男" && $history['distance'] != null)
                      <p>{{$md['60代男性']}}</p>
                     @elseif($history['age'] == "45~49" && $history['gender'] == "男" && $history['distance'] != null)
@@ -112,8 +126,6 @@
                      <p>{{$md['70代女性']}}</p>
                     @elseif($history['age'] == "90~94" && $history['gender'] == "女" && $history['distance'] != null)
                      <p>{{$md['70代女性']}}</p>
-                     
-                     
                     @endif
                     
                     @if($history['distance'] < "300" && $history['distance'] >= "0")
@@ -121,14 +133,17 @@
                     @elseif($history['distance'] >= "300")
                      <p>{{$md['300m以上']}}</p>
                     @endif
-                  </div>
-            </div> 
-            <div class="col-md-8 mx-auto">
-                  <div class="syuuryoubotton">
-                <a href="{{ action('Operation\UserController@list') }}" role="button" class="btn btn-primary">検査終了</a>
+                   </div>
+              </div> 
+         </div>
+            
+         <div class="row">
+               <div class="col-md-8 mx-auto">
+                    <div class="syuuryoubotton">
+                      <a href="{{ action('Operation\UserController@list') }}" role="button" class="btn btn-primary">検査終了して患者一覧へ</a>
                 {{ csrf_field() }}   
-                  </div>
-            </div> 
+                    </div>
+               </div> 
         </div>        
     </div>
 @endsection

@@ -23,7 +23,7 @@ Route::group(['prefix' => 'operation'],function(){
     //↓ create.bladeで新規登録を押すとcontrollerのaddへ
     Route::post('patient/','Operation\UserController@add');
     
-    Route::post('patient/create','Operation\UserController@select')->middleware('auth');
+    //Route::post('patient/create','Operation\UserController@select')->middleware('auth');
     
     Route::get('patient/select','Operation\UserController@select')->middleware('auth');
     Route::post('patient/select','Operation\UserController@test2')->middleware('auth');

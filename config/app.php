@@ -13,10 +13,8 @@ return [
     |
     */
 
-    'name' => [
-    'name1' => env('APP_NAME', 'rehary'),
-    'name2' => 'rehary',
-    ],
+    'name' => env('APP_NAME', 'ReHaRy'),
+  
     /*
     |--------------------------------------------------------------------------
     | Application Environment

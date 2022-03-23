@@ -6,9 +6,13 @@
 <div class="container">
       <div class="row">
             <div class="col-md-8 mx-auto">
-                 <h2>＜基本情報＞</h2>
+                 <h2 class="mb-2">患者情報入力</h2>
+            </div>
+      </div>
+      <div class="row">
+            <div class="col-md-8 mx-auto">
                  <form action="{{ action('Operation\UserController@add') }}" method="post" enctype="multipart/form-data">
-                    
+                 <div class="border mt-1 mb-2 p-2">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -17,12 +21,16 @@
                         </ul>
                     @endif
             
-                    <div class="form-group row">
+                    <div class="row">
                         <label class="col-md-auto">患者ID</label>
                         <div class="col-md-5">
                             <input type="text" class="form-control" name="ID2" value="{{ old('name') }}">
                         </div>
+                        <div class="col-md-10">
+                             <p>　　　　　半角英数字を使用し、個人が特定できないidにしてください。</p>
+                        </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-auto">性別　</label>
                         <div class="col-md-2">
@@ -34,6 +42,7 @@
                           </div>
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-auto">年齢　</label>
                         <div class="col-md-2">
@@ -54,8 +63,9 @@
                      </div>
                      {{ csrf_field() }} 
                     <input type="submit" class="btn btn-primary" value="登録する">
+                </div>
               </form>
-            </div>
+         </div>
    　 </div>
 </div>
 @endsection
