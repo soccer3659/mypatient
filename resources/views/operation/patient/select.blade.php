@@ -56,9 +56,11 @@
             </div>
         </div>
         <div class="row">
-             @if($posts->count() == 0)
-               <p>履歴はありません</p>
-             @endif
+             <div class="col-md-8 mx-auto">
+               @if($posts->count() == 0)
+                 <p>履歴はありません</p>
+               @endif
+             </div>
         </div>    
     </div>
 @endsection
