@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'operation'],function(){
-    Route::get('patient/list','Operation\UserController@list')->middleware('auth');
+    Route::get('patient/list','Operation\UserController@list'); //->middleware('auth');
     
     //↓　list.bladeで登録を押すとcontrollerのcreateへ
     Route::get('patient/create','Operation\UserController@create');
@@ -25,20 +25,20 @@ Route::group(['prefix' => 'operation'],function(){
     
     //Route::post('patient/create','Operation\UserController@select')->middleware('auth');
     
-    Route::get('patient/select','Operation\UserController@select')->middleware('auth');
-    Route::post('patient/select','Operation\UserController@test2')->middleware('auth');
+    Route::get('patient/select','Operation\UserController@select');//->middleware('auth');
+    Route::post('patient/select','Operation\UserController@test2');//->middleware('auth');
     
     //↓ select.bladeでテスト開始を押すとcontrollerのtestへ
-    Route::get('patient/test','Operation\UserController@test')->middleware('auth');
+    Route::get('patient/test','Operation\UserController@test');//->middleware('auth');
     
-    Route::post('patient/test','Operation\UserController@testresult')->middleware('auth');
+    Route::post('patient/test','Operation\UserController@testresult');//->middleware('auth');
     
     //↓ selectの履歴delete 
-    Route::get('patient/delete','Operation\UserController@delete')->middleware('auth');
+    Route::get('patient/delete','Operation\UserController@delete');//->middleware('auth');
     //↓ listのpatient delete
-    Route::get('patient/patientDelete','Operation\UserController@patientDelete')->middleware('auth');
+    Route::get('patient/patientDelete','Operation\UserController@patientDelete');//->middleware('auth');
     
-    Route::get('patient/history','Operation\UserController@history')->middleware('auth');
+    Route::get('patient/history','Operation\UserController@history');//->middleware('auth');
 });    
    
    
